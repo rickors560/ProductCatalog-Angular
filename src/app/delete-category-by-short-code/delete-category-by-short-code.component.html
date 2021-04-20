@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>ShortCode</mat-label>
+                <input type="text" matInput placeholder="Enter ShortCode" [(ngModel)]="shortcode">
+            </mat-form-field>
+        </p>
+        <button class="btn btn-danger" (click)="delete()">Delete</button>
+    </div>
+</div>

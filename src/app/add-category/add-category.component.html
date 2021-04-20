@@ -1,0 +1,37 @@
+<br>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        <form class="form-group" [formGroup]='addCategoryForm' (ngSubmit)='submit()'>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>ID</mat-label>
+                    <input type="number" formControlName="id" matInput placeholder="Placeholder" readonly>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="text" formControlName="name" matInput placeholder="Enter Name">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Short Code</mat-label>
+                    <input type="text" formControlName="shortcode" matInput placeholder="Enter Unique Short Code">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input type="text" formControlName="description" matInput placeholder="Enter Description">
+                </mat-form-field>
+            </p>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]='addCategoryForm.invalid'>Add</button>
+            <button class="btn btn-danger" type="reset">Reset</button>
+        </form>
+        <br>
+    </div>
+</div>
