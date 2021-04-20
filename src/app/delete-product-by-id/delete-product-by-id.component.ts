@@ -18,28 +18,14 @@ export class DeleteProductByIdComponent implements OnInit {
     });
   }
   delete(){
-    let itemFoundFlag : boolean = false;
-    let itemFound: IProduct;
-    this.Products.forEach(p =>{
-      if(p.ID == this.id){
-        itemFoundFlag = true;
-        itemFound = p;
-      }
-    })
-
-    if(itemFoundFlag){
-      let products: IProduct[] = [];
-      this.Products.forEach((p,index) => {
-        if(p != itemFound){
-          products.push(p);
-        }
-      });
-      this.myproductservice.deleteProduct(products);
+    if(this.Products.filter(p => p.ID == this.id).length > 0){
+      this.Products = this.Products.filter(p => p.ID != this.id);
+      this.myproductservice.deleteProduct(this.Products);
       alert("Deleted Successfully");
       this.id = 0;
     }
     else{
-      alert("Id not Found");
+      alert("ID not Found");
     }
   }
 }

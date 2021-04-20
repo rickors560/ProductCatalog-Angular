@@ -18,23 +18,9 @@ export class DeleteCategoryByShortCodeComponent implements OnInit {
     });
   }
   delete(){
-    let itemFoundFlag : boolean = false;
-    let itemFound: ICategory;
-    this.Categories.forEach(c =>{
-      if(c.ShortCode == this.shortcode){
-        itemFoundFlag = true;
-        itemFound = c;
-      }
-    })
-
-    if(itemFoundFlag){
-      let categories: ICategory[] = [];
-      this.Categories.forEach((c,index) => {
-        if(c != itemFound){
-          categories.push(c);
-        }
-      });
-      this.myproductservice.deleteCategory(categories);
+    if(this.Categories.filter(c => c.ShortCode == this.shortcode).length > 0){
+      this.Categories = this.Categories.filter(c => c.ShortCode != this.shortcode);
+      this.myproductservice.deleteCategory(this.Categories);
       alert("Deleted Successfully");
       this.shortcode = '';
     }
