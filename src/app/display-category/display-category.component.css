@@ -1,5 +1,4 @@
-th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
-    padding: 25px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+table.mat-table {
+    border-spacing: 0;
+    width: 80%;
 }

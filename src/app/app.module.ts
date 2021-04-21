@@ -26,6 +26,7 @@ import { DeleteCategoryByIdComponent } from './delete-category-by-id/delete-cate
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { DisplayCategoryComponent } from './display-category/display-category.component';
 import { MyerrorhandlerService } from './myerrorhandler.service';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MyerrorhandlerService } from './myerrorhandler.service';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [
       MyproductService,

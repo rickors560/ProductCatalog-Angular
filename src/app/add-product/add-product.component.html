@@ -1,56 +1,56 @@
 <br>
 <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-4">
-        <form class="form-group" [formGroup]='addProductForm' (ngSubmit)='submit()'>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>ID</mat-label>
-                    <input type="number" formControlName="id" matInput placeholder="Placeholder" readonly>
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input type="text" formControlName="name" matInput placeholder="Enter Name">
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Manufacturer</mat-label>
-                    <input type="text" formControlName="manufacturer" matInput placeholder="Enter Manufacturer">
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Short Code</mat-label>
-                    <input type="text" formControlName="shortcode" matInput placeholder="Enter Unique Short Code">
-                </mat-form-field>
-            </p>
+    <form class="form-group" [formGroup]='addProductForm' (ngSubmit)='submit()'>
 
-            <p>
-                <label>Categories:</label><br>
-                <li *ngFor="let category of Categories">
-                    <input type="radio" [value]="category.Name" formControlName="categories">
-                    <label class="radio-inline">{{category.Name}}</label>
-                </li>
-            </p>
+        <p>
+            <mat-form-field appearance="outline" class="Width">
+                <mat-label>ID</mat-label>
+                <input type="number" formControlName="id" matInput placeholder="Placeholder" readonly>
+            </mat-form-field>
+        </p>
 
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Description</mat-label>
-                    <input type="text" formControlName="description" matInput placeholder="Enter Description">
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Selling Price</mat-label>
-                    <input type="number" formControlName="sellingprice" matInput placeholder="Enter Selling Price">
-                </mat-form-field>
-            </p>
-            <button mat-raised-button color="primary" type="submit" [disabled]='addProductForm.invalid'>Add</button>
-            <button class="btn btn-danger" type="reset">Reset</button>
-        </form>
-        <br>
-    </div>
+        <p>
+            <mat-form-field appearance="outline" class="Width">
+                <mat-label>Name</mat-label>
+                <input type="text" formControlName="name" matInput placeholder="Enter Name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" class="Width">
+                <mat-label>Manufacturer</mat-label>
+                <input type="text" formControlName="manufacturer" matInput placeholder="Enter Manufacturer">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" class="Width">
+                <mat-label>Short Code</mat-label>
+                <input type="text" formControlName="shortcode" matInput placeholder="Enter Unique Short Code">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <label>Categories:</label><br>
+            <li *ngFor="let category of Categories">
+                <input type="radio" [value]="category.Name" formControlName="categories">
+                <label class="radio-inline">{{category.Name}}</label>
+            </li>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline"class="Width">
+                <mat-label>Description</mat-label>
+                <input type="text" formControlName="description" matInput placeholder="Enter Description">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" class="Width">
+                <mat-label>Selling Price</mat-label>
+                <input type="number" formControlName="sellingprice" matInput placeholder="Enter Selling Price">
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary" type="submit" [disabled]='addProductForm.invalid'>Add</button>
+        <button class="btn btn-danger" type="reset">Reset</button>
+    </form>
+    <br>
 </div>
