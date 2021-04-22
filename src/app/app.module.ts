@@ -27,6 +27,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { DisplayCategoryComponent } from './display-category/display-category.component';
 import { MyerrorhandlerService } from './myerrorhandler.service';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTableModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [
       MyproductService,

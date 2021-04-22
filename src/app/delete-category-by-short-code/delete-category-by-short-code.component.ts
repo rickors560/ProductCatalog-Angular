@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICategory } from '../IEntities/ICategory';
 import { MyproductService } from '../myproduct.service';
 
@@ -9,7 +10,7 @@ import { MyproductService } from '../myproduct.service';
 })
 export class DeleteCategoryByShortCodeComponent implements OnInit {
 
-  constructor(private myproductservice: MyproductService) { }
+  constructor(private myproductservice: MyproductService, private _snackBar: MatSnackBar) { }
   Categories: ICategory[]
   shortcode: string;
   ngOnInit(): void {
@@ -21,11 +22,17 @@ export class DeleteCategoryByShortCodeComponent implements OnInit {
     if(this.Categories.filter(c => c.ShortCode == this.shortcode).length > 0){
       this.Categories = this.Categories.filter(c => c.ShortCode != this.shortcode);
       this.myproductservice.deleteCategory(this.Categories);
-      alert("Deleted Successfully");
+      this.openSnackBar("Deleted Successfully!!");
       this.shortcode = '';
     }
     else{
-      alert("ShortCode not Found");
+      this.openSnackBar("ShortCode not Found!!");
     }
+  }
+  openSnackBar(msg:string) {
+    this._snackBar.open(msg,"Ok");
+    setTimeout(() => {
+      this._snackBar.dismiss();
+    }, 2000);
   }
 }

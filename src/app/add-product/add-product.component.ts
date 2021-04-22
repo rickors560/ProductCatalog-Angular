@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICategory } from '../IEntities/ICategory';
 import { IProduct } from '../IEntities/IProduct';
 import { MyproductService } from '../myproduct.service';
@@ -24,7 +25,7 @@ export class AddProductComponent implements OnInit {
   Categories: ICategory[];
   ProductShortCodes:string[];
   id: number;
-  constructor(private myproductservice:MyproductService) {}
+  constructor(private myproductservice:MyproductService, private _snackBar: MatSnackBar) {}
 
   addProductForm:FormGroup;
 
@@ -61,8 +62,15 @@ export class AddProductComponent implements OnInit {
       SellingPrice : this.addProductForm.get('sellingprice')?.value,
     };
     this.myproductservice.addProduct(newProduct);
+    this.openSnackBar();
   }
   reset(){
     this.addProductForm.reset();
+  }
+  openSnackBar() {
+    this._snackBar.open("Added Successfully!!","Ok");
+    setTimeout(() => {
+      this._snackBar.dismiss();
+    }, 2000);
   }
 }

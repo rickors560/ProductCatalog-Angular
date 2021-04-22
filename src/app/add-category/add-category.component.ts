@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICategory } from '../IEntities/ICategory';
 import { MyproductService } from '../myproduct.service';
 
@@ -23,7 +24,7 @@ export class AddCategoryComponent implements OnInit {
   Categories: ICategory[];
   CategoryShortCodes:string[];
   id: number;
-  constructor(private myproductservice:MyproductService) {}
+  constructor(private myproductservice:MyproductService, private _snackBar: MatSnackBar) {}
 
   addCategoryForm:FormGroup;
 
@@ -51,8 +52,15 @@ export class AddCategoryComponent implements OnInit {
       Description : this.addCategoryForm.get('description')?.value
     };
     this.myproductservice.addCategory(newCategory);
+    this.openSnackBar();
   }
   reset(){
     this.addCategoryForm.reset();
+  }
+  openSnackBar() {
+    this._snackBar.open("Added Successfully!!","Ok");
+    setTimeout(() => {
+      this._snackBar.dismiss();
+    }, 2000);
   }
 }
