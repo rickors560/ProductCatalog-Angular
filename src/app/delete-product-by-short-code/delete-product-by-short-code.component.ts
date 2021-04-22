@@ -19,7 +19,7 @@ export class DeleteProductByShortCodeComponent implements OnInit {
     });
   }
   delete(){
-    if(this.Products.filter(p => p.ShortCode == this.shortcode).length > 0){
+    if(this.Products.filter(p => p.ShortCode == this.shortcode).length > 0 && this.shortcode != "Default"){
       this.Products = this.Products.filter(p => p.ShortCode != this.shortcode);
       this.myproductservice.deleteProduct(this.Products);
       this.openSnackBar("Deleted Successfully!!");

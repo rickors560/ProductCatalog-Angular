@@ -19,6 +19,12 @@ export class MyproductService{
   constructor() {
     this.Categories = [
       {
+        ID: 0,
+        Name: "Default",
+        ShortCode: "Default",
+        Description: "Default"
+      },
+      {
         ID: 1,
         Name: "Technology",
         ShortCode: "Tech",
@@ -32,6 +38,15 @@ export class MyproductService{
       }
     ];
     this.Products = [
+      {
+        ID:0,
+        Name:"Default",
+        Manufacturer:"Default",
+        ShortCode:"Default",
+        Categories:'Default',
+        Description: "Default",
+        SellingPrice: 0
+      },
       {
         ID:1,
         Name:"Laptop",

@@ -20,7 +20,7 @@ export class DeleteProductByIdComponent implements OnInit {
     });
   }
   delete(){
-    if(this.Products.filter(p => p.ID == this.id).length > 0){
+    if(this.Products.filter(p => p.ID == this.id).length > 0 && this.id != 0){
       this.Products = this.Products.filter(p => p.ID != this.id);
       this.myproductservice.deleteProduct(this.Products);
       this.openSnackBar("Deleted Successfully!!");

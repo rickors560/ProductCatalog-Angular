@@ -17,7 +17,7 @@ export class DisplayCategoryComponent implements OnInit {
   
   ngOnInit(): void {
     this.myproductservice.categories$.subscribe(c=>{
-      this.Categories = c;
+      this.Categories = c.slice(1);
     });
   }
   filterByID(){

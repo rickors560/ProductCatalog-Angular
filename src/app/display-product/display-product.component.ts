@@ -16,7 +16,7 @@ export class DisplayProductComponent implements OnInit {
   
   ngOnInit(): void {
     this.myproductservice.products$.subscribe(c=>{
-      this.Products = c;
+      this.Products = c.slice(1);
     });
   }
   filterByID(){

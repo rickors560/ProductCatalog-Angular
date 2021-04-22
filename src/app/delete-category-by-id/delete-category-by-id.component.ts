@@ -19,7 +19,7 @@ export class DeleteCategoryByIdComponent implements OnInit {
     });
   }
   delete(){
-    if(this.Categories.filter(c => c.ID == this.id).length > 0){
+    if(this.Categories.filter(c => c.ID == this.id).length > 0 && this.id != 0){
       this.Categories = this.Categories.filter(c => c.ID != this.id);
       this.myproductservice.deleteCategory(this.Categories);
       this.openSnackBar("Deleted Successfully!!");
